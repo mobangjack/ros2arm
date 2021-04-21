@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt install g++-aarch64-linux-gnu gcc-aarch64-linux-gnu
+sudo apt install g++-arm-linux-gnueabi gcc-arm-linux-gnueabi
