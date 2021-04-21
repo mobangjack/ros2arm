@@ -9,6 +9,7 @@ jobs:
   linux-build:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - name: Build image
       run: docker build . -t $IMAGE_NAME
     - name: Log into registry
