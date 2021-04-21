@@ -47,7 +47,7 @@ RUN touch \
   src/ros2/rosidl_typesupport_connext/COLCON_IGNORE \
   src/ros2/rcl_interfaces/test_msgs/COLCON_IGNORE
 
-RUN export CROSS_COMPILE=arm-linux-gnueabi- \
+RUN export CROSS_COMPILE=aarch64-linux-gnu- \
     && colcon build \
         --symlink-install \
         --cmake-force-configure \

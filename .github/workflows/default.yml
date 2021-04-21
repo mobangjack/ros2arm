@@ -1,4 +1,4 @@
-name: Build and push image
+name: Build All
 
 on: [push, pull_request]
 
@@ -12,6 +12,14 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build image
       run: docker build . -t $IMAGE_NAME
+    - name: Extract targets from image
+      run: docker run -v $pwd:$pwd $IMAGE_NAME bash -c "cp -r /ros2_ws/install $pwd"
+    - name: Compress targets
+      run: tar -cf install.tar.gz install
+    - uses: actions/upload-artifact@v2
+      with:
+        name: install
+        path: install.tar.gz
     - name: Log into registry
       run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
     - name: Push image
