@@ -4,8 +4,8 @@ COPY ./sources.list /etc/apt/
 COPY ./ros2-latest.list /etc/apt/sources.list.d/
 
 RUN apt-get update && apt-get install -y \
-    g++-arm-linux-gnueabi \
-    gcc-arm-linux-gnueabi \
+    g++-aarch64-linux-gnu \
+    gcc-aarch64-linux-gnu \
     wget
 
 FROM toolchain AS manifest
@@ -14,7 +14,7 @@ WORKDIR /ros2_ws
 
 COPY ./ros2.repos .
 COPY ./ros2-for-arm.repos .
-COPY ./arm_toolchainfile.cmake .
+COPY ./aarch64_toolchainfile.cmake .
 
 FROM manifest AS source
 
@@ -53,7 +53,7 @@ RUN export CROSS_COMPILE=arm-linux-gnueabi- \
         --cmake-force-configure \
         --cmake-args \
             --no-warn-unused-cli \
-            -DCMAKE_TOOLCHAIN_FILE=`pwd`/arm_toolchainfile.cmake \
+            -DCMAKE_TOOLCHAIN_FILE=`pwd`/aarch64_toolchainfile.cmake \
             -DTHIRDPARTY=ON \
             -DBUILD_TESTING:BOOL=OFF \
             -DCMAKE_BUILD_RPATH="`pwd`/build/poco_vendor/poco_external_project_install/lib/;`pwd`/build/libyaml_vendor/libyaml_install/lib/"
