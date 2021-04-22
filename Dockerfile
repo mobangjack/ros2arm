@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y \
     wget \
     unzip
 
-RUN wget https://dl.google.com/android/repository/android-ndk-r22b-linux-x86_64.zip
+RUN wget -q -nv https://dl.google.com/android/repository/android-ndk-r22b-linux-x86_64.zip
 RUN unzip -qq android-ndk-r22b-linux-x86_64.zip
 
 ENV ANDROID_NDK=/android-ndk-r22b
@@ -44,7 +44,8 @@ RUN touch \
   src/ros2/rosidl_python/COLCON_IGNORE \
   src/ros2/rmw_opensplice/COLCON_IGNORE \
   src/ros2/rosidl_typesupport_connext/COLCON_IGNORE \
-  src/ros2/rcl_interfaces/test_msgs/COLCON_IGNORE
+  src/ros2/rcl_interfaces/test_msgs/COLCON_IGNORE \
+  src/osrf/osrf_testing_tools_cpp/COLCON_IGNORE
 
 # disable SECURITY
 RUN sed -i '/option(SECURITY/a\set(SECURITY\ OFF)' src/eProsima/Fast-RTPS/CMakeLists.txt
