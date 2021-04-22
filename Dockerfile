@@ -35,15 +35,13 @@ RUN touch \
   src/ros2/rmw_connext/COLCON_IGNORE \
   src/ros2/orocos_kinematics_dynamics/COLCON_IGNORE \
   src/ros2/examples/rclpy/COLCON_IGNORE \
-  src/ros2/robot_state_publisher/COLCON_IGNORE \
+  src/ros/robot_state_publisher/COLCON_IGNORE \
   src/ros2/rviz/COLCON_IGNORE \
   src/ros2/rcl/rcl/test/COLCON_IGNORE \
   src/ros2/urdfdom/COLCON_IGNORE \
   src/ros2/rclpy/COLCON_IGNORE \
-  src/ros2/rosidl_typesupport_opensplice/COLCON_IGNORE \
   src/ros2/system_tests/COLCON_IGNORE \
   src/ros2/rosidl_python/COLCON_IGNORE \
-  src/ros2/rmw_opensplice/COLCON_IGNORE \
   src/ros2/rosidl_typesupport_connext/COLCON_IGNORE \
   src/ros2/rcl_interfaces/test_msgs/COLCON_IGNORE
 
