@@ -1,14 +1,11 @@
 FROM ros:foxy AS toolchain
 
-COPY ./sources.list /etc/apt/
-COPY ./ros2-latest.list /etc/apt/sources.list.d/
-
 RUN apt-get update && apt-get install -y \
     wget \
     unzip
 
 RUN wget https://dl.google.com/android/repository/android-ndk-r22b-linux-x86_64.zip
-RUN unzip -q android-ndk-r22b-linux-x86_64.zip
+RUN unzip -qq android-ndk-r22b-linux-x86_64.zip
 
 ENV ANDROID_NDK=/android-ndk-r22b
 
@@ -16,6 +13,7 @@ FROM toolchain AS manifest
 
 WORKDIR /ros2_ws
 
+# RUN wget https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos
 COPY ./ros2.repos .
 
 FROM manifest AS source
@@ -47,6 +45,9 @@ RUN touch \
   src/ros2/rmw_opensplice/COLCON_IGNORE \
   src/ros2/rosidl_typesupport_connext/COLCON_IGNORE \
   src/ros2/rcl_interfaces/test_msgs/COLCON_IGNORE
+
+# disable SECURITY
+RUN sed -i 'N;240aset(SECURITY OFF)' src/eProsima/Fast-RTPS/CMakeLists.txt
 
 # android build configuration
 ARG PYTHON3_EXEC=/usr/bin/python3
