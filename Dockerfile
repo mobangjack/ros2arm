@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
     unzip
 
 RUN wget https://dl.google.com/android/repository/android-ndk-r22b-linux-x86_64.zip
-RUN unzip android-ndk-r22b-linux-x86_64.zip
+RUN unzip -q android-ndk-r22b-linux-x86_64.zip
 
 ENV ANDROID_NDK=/android-ndk-r22b
 
@@ -22,6 +22,8 @@ FROM manifest AS source
 
 RUN mkdir src
 RUN vcs-import src < ros2.repos
+
+FROM source AS build
 
 RUN touch \
   src/ros-perception/laser_geometry/COLCON_IGNORE \
@@ -46,8 +48,6 @@ RUN touch \
   src/ros2/rosidl_typesupport_connext/COLCON_IGNORE \
   src/ros2/rcl_interfaces/test_msgs/COLCON_IGNORE
 
-FROM source AS build
-
 # android build configuration
 ARG PYTHON3_EXEC=/usr/bin/python3
 ENV ANDROID_ABI=armeabi-v7a
@@ -69,6 +69,4 @@ RUN colcon build \
         -DTHIRDPARTY=ON \
         -DCOMPILE_EXAMPLES=ON \
         -DBUILD_TESTING:BOOL=OFF \
-        -DCMAKE_FIND_ROOT_PATH="$PWD/install" \
-        -- \
-        --parallel
+        -DCMAKE_FIND_ROOT_PATH="$PWD/install"
