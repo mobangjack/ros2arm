@@ -4,25 +4,24 @@ COPY ./sources.list /etc/apt/
 COPY ./ros2-latest.list /etc/apt/sources.list.d/
 
 RUN apt-get update && apt-get install -y \
-    g++-aarch64-linux-gnu \
-    gcc-aarch64-linux-gnu \
-    wget
+    wget \
+    unzip
+
+RUN wget https://dl.google.com/android/repository/android-ndk-r22b-linux-x86_64.zip
+RUN unzip android-ndk-r22b-linux-x86_64.zip
+
+ENV ANDROID_NDK=/android-ndk-r22b
 
 FROM toolchain AS manifest
 
 WORKDIR /ros2_ws
 
 COPY ./ros2.repos .
-COPY ./ros2-for-arm.repos .
-COPY ./aarch64_toolchainfile.cmake .
 
 FROM manifest AS source
 
 RUN mkdir src
 RUN vcs-import src < ros2.repos
-RUN vcs-import src < ros2-for-arm.repos
-
-FROM source AS build
 
 RUN touch \
   src/ros-perception/laser_geometry/COLCON_IGNORE \
@@ -35,23 +34,41 @@ RUN touch \
   src/ros2/rmw_connext/COLCON_IGNORE \
   src/ros2/orocos_kinematics_dynamics/COLCON_IGNORE \
   src/ros2/examples/rclpy/COLCON_IGNORE \
-  src/ros/robot_state_publisher/COLCON_IGNORE \
+  src/ros2/robot_state_publisher/COLCON_IGNORE \
   src/ros2/rviz/COLCON_IGNORE \
   src/ros2/rcl/rcl/test/COLCON_IGNORE \
   src/ros2/urdfdom/COLCON_IGNORE \
   src/ros2/rclpy/COLCON_IGNORE \
+  src/ros2/rosidl_typesupport_opensplice/COLCON_IGNORE \
   src/ros2/system_tests/COLCON_IGNORE \
   src/ros2/rosidl_python/COLCON_IGNORE \
+  src/ros2/rmw_opensplice/COLCON_IGNORE \
   src/ros2/rosidl_typesupport_connext/COLCON_IGNORE \
   src/ros2/rcl_interfaces/test_msgs/COLCON_IGNORE
 
-RUN export CROSS_COMPILE=aarch64-linux-gnu- \
-    && colcon build \
-        --symlink-install \
-        --cmake-force-configure \
-        --cmake-args \
-            --no-warn-unused-cli \
-            -DCMAKE_TOOLCHAIN_FILE=`pwd`/aarch64_toolchainfile.cmake \
-            -DTHIRDPARTY=ON \
-            -DBUILD_TESTING:BOOL=OFF \
-            -DCMAKE_BUILD_RPATH="`pwd`/build/poco_vendor/poco_external_project_install/lib/;`pwd`/build/libyaml_vendor/libyaml_install/lib/"
+FROM source AS build
+
+# android build configuration
+ARG PYTHON3_EXEC=/usr/bin/python3
+ENV ANDROID_ABI=armeabi-v7a
+ENV ANDROID_NATIVE_API_LEVEL=android-21
+ENV ANDROID_TOOLCHAIN_NAME=arm-linux-androideabi-gcc
+
+RUN colcon build \
+    --cmake-force-configure \
+    --cmake-args \
+        --no-warn-unused-cli \
+        -DPYTHON_EXECUTABLE=${PYTHON3_EXEC} \
+        -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK/build/cmake/android.toolchain.cmake \
+        -DANDROID_FUNCTION_LEVEL_LINKING=OFF \
+        -DANDROID_NATIVE_API_LEVEL=${ANDROID_NATIVE_API_LEVEL} \
+        -DANDROID_TOOLCHAIN_NAME=${ANDROID_TOOLCHAIN_NAME} \
+        -DANDROID_STL=c++_shared \
+        -DANDROID_ABI=${ANDROID_ABI} \
+        -DANDROID_NDK=${ANDROID_NDK} \
+        -DTHIRDPARTY=ON \
+        -DCOMPILE_EXAMPLES=ON \
+        -DBUILD_TESTING:BOOL=OFF \
+        -DCMAKE_FIND_ROOT_PATH="$PWD/install" \
+        -- \
+        --parallel
