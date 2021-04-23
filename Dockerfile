@@ -47,17 +47,11 @@ RUN touch \
   src/ros2/rcl_interfaces/test_msgs/COLCON_IGNORE \
   src/osrf/osrf_testing_tools_cpp/COLCON_IGNORE
 
-# disable SECURITY
-RUN sed -i '/option(SECURITY/a\set(SECURITY\ OFF)' src/eProsima/Fast-RTPS/CMakeLists.txt
-
-# fix ld: error: unable to find library -lpthread
-# RUN sed -i '/set(SECURITY/a\find_package(Threads)' src/eProsima/Fast-RTPS/CMakeLists.txt
-
 # android build configuration
 ARG PYTHON3_EXEC=/usr/bin/python3
 ENV ANDROID_ABI=armeabi-v7a
 ENV ANDROID_NATIVE_API_LEVEL=android-21
-ENV ANDROID_TOOLCHAIN_NAME=arm-linux-androideabi-gcc
+ENV ANDROID_TOOLCHAIN_NAME=arm-linux-androideabi-clang
 
 RUN colcon build \
     --cmake-force-configure \
