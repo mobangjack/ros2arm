@@ -68,4 +68,5 @@ RUN colcon build \
         -DTHIRDPARTY=ON \
         -DCOMPILE_EXAMPLES=ON \
         -DBUILD_TESTING:BOOL=OFF \
-        -DCMAKE_FIND_ROOT_PATH="$PWD/install"
+        -DCMAKE_FIND_ROOT_PATH="$PWD/install" \
+        -DCMAKE_CXX_FLAGS="-std=c++11"
