@@ -53,19 +53,17 @@ RUN touch \
 # android build configuration
 ARG PYTHON3_EXEC=/usr/bin/python3
 ARG ANDROID_ABI=armeabi-v7a
-ARG ANDROID_NATIVE_API_LEVEL=android-21
-ARG ANDROID_TOOLCHAIN_NAME=arm-linux-androideabi-clang
+ARG ANDROID_NATIVE_API_LEVEL=android-23
+ARG ANDROID_TOOLCHAIN=clang
 
 RUN colcon build \
-    --cmake-force-configure \
     --cmake-args \
         --no-warn-unused-cli \
         -DPYTHON_EXECUTABLE=${PYTHON3_EXEC} \
         -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK/build/cmake/android.toolchain.cmake \
         -DANDROID_FUNCTION_LEVEL_LINKING=OFF \
         -DANDROID_NATIVE_API_LEVEL=${ANDROID_NATIVE_API_LEVEL} \
-        -DANDROID_TOOLCHAIN_NAME=${ANDROID_TOOLCHAIN_NAME} \
-        -DANDROID_STL=c++_shared \
+        -DANDROID_TOOLCHAIN=${ANDROID_TOOLCHAIN} \
         -DANDROID_ABI=${ANDROID_ABI} \
         -DANDROID_NDK=${ANDROID_NDK} \
         -DTHIRDPARTY=ON \
