@@ -37,7 +37,7 @@ repositories:
     version: v1.0.7
   eProsima/Fast-DDS:
     type: git
-    url: https://github.com/mobangjack/Fast-DDS.git
+    url: https://gitee.com/mobangjack/Fast-DDS.git
     version: android
   osrf/osrf_testing_tools_cpp:
     type: git
@@ -69,11 +69,11 @@ repositories:
     version: e7e0972a4617b8a5df7a274ea3ba3b92e3895a35
   ros-perception/laser_geometry:
     type: git
-    url: https://gitee.com/mobangjack-perception/laser_geometry.git
+    url: https://gitee.com/mobangjack/laser_geometry.git
     version: 2.0.0
   ros-planning/navigation_msgs:
     type: git
-    url: https://gitee.com/mobangjack-planning/navigation_msgs.git
+    url: https://gitee.com/mobangjack/navigation_msgs.git
     version: 2.0.0
   ros2/ament_cmake_ros:
     type: git
