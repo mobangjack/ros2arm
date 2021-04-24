@@ -134,7 +134,7 @@ repositories:
   ros2/rclcpp:
     type: git
     url: https://gitee.com/mobangjack/rclcpp.git
-    version: 0.5.1
+    version: android
   ros2/rclpy:
     type: git
     url: https://gitee.com/mobangjack/rclpy.git
@@ -222,7 +222,7 @@ repositories:
   ros2/tinyxml_vendor:
     type: git
     url: https://gitee.com/mobangjack/tinyxml_vendor.git
-    version: 0.5.0
+    version: android
   ros2/tinyxml2_vendor:
     type: git
     url: https://gitee.com/mobangjack/tinyxml2_vendor.git
