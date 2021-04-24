@@ -52,9 +52,9 @@ RUN touch \
 
 # android build configuration
 ARG PYTHON3_EXEC=/usr/bin/python3
-ENV ANDROID_ABI=armeabi-v7a
-ENV ANDROID_NATIVE_API_LEVEL=android-21
-ENV ANDROID_TOOLCHAIN_NAME=arm-linux-androideabi-clang
+ARG ANDROID_ABI=armeabi-v7a
+ARG ANDROID_NATIVE_API_LEVEL=android-21
+ARG ANDROID_TOOLCHAIN_NAME=arm-linux-androideabi-clang
 
 RUN colcon build \
     --cmake-force-configure \
