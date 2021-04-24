@@ -54,7 +54,6 @@ ENV ANDROID_NATIVE_API_LEVEL=android-21
 ENV ANDROID_TOOLCHAIN_NAME=arm-linux-androideabi-clang
 
 RUN colcon build \
-    --cmake-force-configure \
     --cmake-args \
         --no-warn-unused-cli \
         -DPYTHON_EXECUTABLE=${PYTHON3_EXEC} \
