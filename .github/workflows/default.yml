@@ -1,6 +1,6 @@
 name: Build All
 
-on: [push, pull_request]
+# on: [push, pull_request]
 
 env:
   IMAGE_NAME: ros2arm
@@ -11,12 +11,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build image
-      run: docker build . -t $IMAGE_NAME
-    - name: Extract targets from image
-      run: docker run -v $pwd:$pwd $IMAGE_NAME bash -c "cp -r /ros2_ws/install $pwd"
-    - name: Compress targets
-      run: tar -cf install.tar.gz install
-    - uses: actions/upload-artifact@v2
-      with:
-        name: install
-        path: install.tar.gz
+      run: docker build . -t $IMAGE_NAME --target source
+    # - name: Extract targets from image
+    #   run: docker run -v $pwd:$pwd $IMAGE_NAME bash -c "cp -r /ros2_ws/install $pwd"
+    # - name: Compress targets
+    #   run: tar -cf install.tar.gz install
+    # - uses: actions/upload-artifact@v2
+    #   with:
+    #     name: install
+    #     path: install.tar.gz

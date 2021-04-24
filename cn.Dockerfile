@@ -1,5 +1,8 @@
 FROM ros:foxy AS toolchain
 
+COPY ./sources.list /etc/apt/
+COPY ./ros2-latest.list /etc/apt/sources.list.d/
+
 RUN apt-get update && apt-get install -y \
     wget \
     unzip
@@ -14,12 +17,12 @@ FROM toolchain AS manifest
 WORKDIR /ros2_ws
 
 # RUN wget https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos
-COPY ./ros2.yml .
+COPY ./ros2-cn.yml .
 
 FROM manifest AS source
 
 RUN mkdir src
-RUN vcs-import src < ros2.yml
+RUN vcs-import src < ros2-cn.yml
 
 FROM source AS build
 
