@@ -51,7 +51,7 @@ RUN touch \
 ARG PYTHON3_EXEC=/usr/bin/python3
 ARG ANDROID_ABI=armeabi-v7a
 ARG ANDROID_NATIVE_API_LEVEL=android-21
-ARG ANDROID_TOOLCHAIN_NAME=arm-linux-androideabi-clang
+ARG ANDROID_TOOLCHAIN_NAME=aarch64-linux-androideabi-clang
 
 RUN colcon build \
     --cmake-args \

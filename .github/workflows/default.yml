@@ -21,8 +21,8 @@ jobs:
         tar -zcf ${ARTIFACT_NAME}.tar.gz ${ARTIFACT_NAME}
     - uses: actions/upload-artifact@v2
       with:
-        name: ${ARTIFACT_NAME}
-        path: ${ARTIFACT_NAME}.tar.gz
+        name: ${{ env.ARTIFACT_NAME }}
+        path: ${{ env.ARTIFACT_NAME }}.tar.gz
   build-arm64:
     runs-on: ubuntu-latest
     env:
@@ -41,8 +41,8 @@ jobs:
         tar -zcf ${ARTIFACT_NAME}.tar.gz ${ARTIFACT_NAME}
     - uses: actions/upload-artifact@v2
       with:
-        name: ${ARTIFACT_NAME}
-        path: ${ARTIFACT_NAME}.tar.gz
+        name: ${{ env.ARTIFACT_NAME }}
+        path: ${{ env.ARTIFACT_NAME }}.tar.gz
     # - name: Login to DockerHub
     #     uses: docker/login-action@v1
     #     with:
