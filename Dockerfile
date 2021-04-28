@@ -26,7 +26,7 @@ FROM source AS build
 RUN touch \
   src/ros2/examples/rclpy/COLCON_IGNORE \
   src/ros2/rcl/rcl/test/COLCON_IGNORE \
-  src/ros2/rcl_interfaces/test_msgs/COLCON_IGNORE \
+  src/ros2/rcl_interfaces/test_msgs/COLCON_IGNORE
 
 # android build configuration
 ARG PYTHON3_EXEC=/usr/bin/python3
