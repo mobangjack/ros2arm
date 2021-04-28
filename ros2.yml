@@ -47,10 +47,10 @@ repositories:
     type: git
     url: https://github.com/ros/class_loader.git
     version: 1.1.0
-  # ros/console_bridge:
-  #   type: git
-  #   url: https://github.com/ros/console_bridge.git
-  #   version: ad25f7307da76be2857545e7e5c2a20727eee542
+  ros/console_bridge:
+    type: git
+    url: https://github.com/ros/console_bridge.git
+    version: ad25f7307da76be2857545e7e5c2a20727eee542
   ros/pluginlib:
     type: git
     url: https://github.com/ros/pluginlib.git
@@ -143,10 +143,10 @@ repositories:
     type: git
     url: https://github.com/ros2/rcutils.git
     version: 0.5.1
-  ros2/realtime_support:
-    type: git
-    url: https://github.com/ros2/realtime_support.git
-    version: 0.5.0
+  # ros2/realtime_support:
+  #   type: git
+  #   url: https://github.com/ros2/realtime_support.git
+  #   version: 0.5.0
   ros2/rmw:
     type: git
     url: https://github.com/ros2/rmw.git
@@ -211,10 +211,10 @@ repositories:
   #   type: git
   #   url: https://github.com/ros2/rviz.git
   #   version: 4.0.2
-  ros2/sros2:
-    type: git
-    url: https://github.com/ros2/sros2.git
-    version: 0.5.0
+  # ros2/sros2:
+  #   type: git
+  #   url: https://github.com/ros2/sros2.git
+  #   version: 0.5.0
   # ros2/system_tests:
   #   type: git
   #   url: https://github.com/ros2/system_tests.git
@@ -227,10 +227,10 @@ repositories:
     type: git
     url: https://github.com/ros2/tinyxml2_vendor.git
     version: 0.4.0
-  ros2/tlsf:
-    type: git
-    url: https://github.com/ros2/tlsf.git
-    version: 0.5.0
+  # ros2/tlsf:
+  #   type: git
+  #   url: https://github.com/ros2/tlsf.git
+  #   version: 0.5.0
 #  ros2/tutorials:
 #    type: git
 #    url: https://github.com/ros2/tutorials.git
