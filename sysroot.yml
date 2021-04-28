@@ -1,0 +1,17 @@
+repositories:
+  leethomason/tinyxml2:
+    type: git
+    url: https://github.com/leethomason/tinyxml2.git
+    version: master
+  foonathan/memory:
+    type: git
+    url: https://github.com/foonathan/memory.git
+    version: main
+  gabime/spdlog:
+    type: git
+    url: https://github.com/gabime/spdlog.git
+    version: master
+  jbeder/yaml-cpp:
+    type: git
+    url: https://github.com/jbeder/yaml-cpp.git
+    version: master
