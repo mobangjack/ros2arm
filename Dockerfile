@@ -55,6 +55,7 @@ RUN cd src/foonathan/memory \
         -DANDROID_NDK=${ANDROID_NDK} \
         -DANDROID_STL=${ANDROID_STL} \
         -DCMAKE_INSTALL_PREFIX=/ros2_ws/install \
+        -DFOONATHAN_MEMORY_BUILD_TESTS=OFF \
     && cmake --build .
 
 RUN cd src/gabime/spdlog \
