@@ -107,10 +107,6 @@ repositories:
     type: git
     url: https://gitee.com/mobangjack/rmw_implementation.git
     version: foxy
-  ros2/ros1_bridge:
-    type: git
-    url: https://gitee.com/mobangjack/ros1_bridge.git
-    version: foxy
   ros2/ros_testing:
     type: git
     url: https://gitee.com/mobangjack/ros_testing.git
