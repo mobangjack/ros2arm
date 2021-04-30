@@ -59,14 +59,14 @@ repositories:
   #   type: git
   #   url: https://github.com/ros-planning/navigation_msgs.git
   #   version: foxy
-  # ros-tooling/libstatistics_collector:
-  #   type: git
-  #   url: https://github.com/ros-tooling/libstatistics_collector.git
-  #   version: foxy-devel
-  # ros-tracing/ros2_tracing:
-  #   type: git
-  #   url: https://gitlab.com/ros-tracing/ros2_tracing.git
-  #   version: foxy
+  ros-tooling/libstatistics_collector:
+    type: git
+    url: https://github.com/ros-tooling/libstatistics_collector.git
+    version: foxy-devel
+  ros-tracing/ros2_tracing:
+    type: git
+    url: https://gitlab.com/ros-tracing/ros2_tracing.git
+    version: foxy
   # ros-visualization/interactive_markers:
   #   type: git
   #   url: https://github.com/ros-visualization/interactive_markers.git

@@ -39,6 +39,14 @@ repositories:
     type: git
     url: https://gitee.com/mobangjack/osrf_testing_tools_cpp.git
     version: foxy
+  ros-tooling/libstatistics_collector:
+    type: git
+    url: https://gitee.com/mobangjack/libstatistics_collector.git
+    version: foxy-devel
+  ros-tracing/ros2_tracing:
+    type: git
+    url: https://gitee.com/mobangjack/ros2_tracing.git
+    version: foxy
   ros/class_loader:
     type: git
     url: https://gitee.com/mobangjack/class_loader.git
