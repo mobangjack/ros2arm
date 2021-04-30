@@ -32,6 +32,7 @@ ARG ANDROID_NATIVE_API_LEVEL=23
 ARG ANDROID_TOOLCHAIN=clang
 
 COPY ./genarate_package_xml.py .
+COPY ./package.xml .
 
 # generate package.xml for ros2 dependencies
 RUN ${PYTHON3_EXEC} genarate_package_xml.py base.yml
