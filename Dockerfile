@@ -31,11 +31,11 @@ ARG ANDROID_STL=c++_static
 ARG ANDROID_NATIVE_API_LEVEL=23
 ARG ANDROID_TOOLCHAIN=clang
 
-COPY ./genarate_package_xml.py .
+COPY ./generate_package_xml.py .
 COPY ./package.xml .
 
 # generate package.xml for ros2 dependencies
-RUN ${PYTHON3_EXEC} genarate_package_xml.py base.yml
+RUN ${PYTHON3_EXEC} generate_package_xml.py base.yml
 
 RUN touch \
   src/ros2/examples/rclpy/COLCON_IGNORE \

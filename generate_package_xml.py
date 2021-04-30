@@ -1,6 +1,6 @@
 # Generate package.xml
 
-import os, sys, argparse
+import os, argparse
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE_FILE = os.path.join(CURRENT_DIR, 'package.xml')
@@ -30,8 +30,8 @@ def generate_from_manifest(path):
     with open(path) as f:
         doc = yaml.load(f)
     repositories = doc['repositories']
-    for repo in repositories:
-        package = os.path.join(os.path.dirname(path), 'src', repo)
+    for item in repositories:
+        package = os.path.join(os.path.dirname(path), 'src', item)
         generate_one(package)
 
 def main():
