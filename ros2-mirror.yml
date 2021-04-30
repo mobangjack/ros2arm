@@ -35,6 +35,10 @@ repositories:
     type: git
     url: https://gitee.com/mobangjack/foonathan_memory_vendor.git
     version: master
+  osrf/osrf_testing_tools_cpp:
+    type: git
+    url: https://gitee.com/mobangjack/osrf_testing_tools_cpp.git
+    version: foxy
   ros/class_loader:
     type: git
     url: https://gitee.com/mobangjack/class_loader.git
@@ -142,10 +146,6 @@ repositories:
   ros2/tinyxml2_vendor:
     type: git
     url: https://gitee.com/mobangjack/tinyxml2_vendor.git
-    version: foxy
-  ros2/tinyxml_vendor:
-    type: git
-    url: https://gitee.com/mobangjack/tinyxml_vendor.git
     version: foxy
   ros2/unique_identifier_msgs:
     type: git

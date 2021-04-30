@@ -1,5 +1,5 @@
 repositories:
-  foonathan/memory:
+  foonathan/foonathan_memory:
     type: git
     url: https://gitee.com/mobangjack/memory.git
     version: main

@@ -5,6 +5,14 @@ export PYTHON3_EXEC=/usr/bin/python3
 export ANDROID_STL=c++_static
 export ANDROID_TOOLCHAIN=clang
 
+${PYTHON3_EXEC} generate_package_xml.py base.yml
+
+touch \
+  src/ros2/examples/rclpy/COLCON_IGNORE \
+  src/ros2/rcl/rcl/test/COLCON_IGNORE \
+  src/ros2/rcl_interfaces/test_msgs/COLCON_IGNORE \
+  src/ros2/rcl_logging/rcl_logging_log4cxx/COLCON_IGNORE
+
 colcon build \
     --merge-install \
     --cmake-args \
@@ -19,5 +27,11 @@ colcon build \
         -DTHIRDPARTY=ON \
         -DCOMPILE_EXAMPLES=OFF \
         -DBUILD_TESTING:BOOL=OFF \
+        -DBUILD_MEMORY_TESTS=OFF \
         -DBUILD_MEMORY_TOOLS=OFF \
+        -DBUILD_MEMORY_EXAMPLES=OFF \
+        -DFOONATHAN_MEMORY_BUILD_EXAMPLES=OFF\
+        -DFOONATHAN_MEMORY_BUILD_TOOLS=OFF \
+        -DFOONATHAN_MEMORY_BUILD_TESTS=OFF \
+        -DBUILD_SHARED_LIBS=ON \
         -DCMAKE_FIND_ROOT_PATH="$PWD/install"

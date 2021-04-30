@@ -3,7 +3,7 @@
 import os, argparse
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
-TEMPLATE_FILE = os.path.join(CURRENT_DIR, 'package.xml')
+TEMPLATE_FILE = os.path.join(CURRENT_DIR, '_package.xml')
 
 def generate_string(name):
     with open(TEMPLATE_FILE) as f:

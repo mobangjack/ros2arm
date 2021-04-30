@@ -3,7 +3,7 @@ repositories:
     type: git
     url: https://github.com/leethomason/tinyxml2.git
     version: master
-  foonathan/memory:
+  foonathan/foonathan_memory:
     type: git
     url: https://github.com/foonathan/memory.git
     version: main
