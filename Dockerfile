@@ -24,23 +24,23 @@ RUN vcs-import src < ros2.yml
 
 FROM source AS build
 
-COPY ./genarate_package_xml.py .
-
-# generate package.xml for ros2 dependencies
-RUN python genarate_package_xml.py base.yml
-
-RUN touch \
-  src/ros2/examples/rclpy/COLCON_IGNORE \
-  src/ros2/rcl/rcl/test/COLCON_IGNORE \
-  src/ros2/rcl_interfaces/test_msgs/COLCON_IGNORE \
-  src/ros2/rcl_logging/rcl_logging_log4cxx/COLCON_IGNORE
-
 # android build configuration
 ARG PYTHON3_EXEC=/usr/bin/python3
 ARG ANDROID_ABI=armeabi-v7a
 ARG ANDROID_STL=c++_static
 ARG ANDROID_NATIVE_API_LEVEL=23
 ARG ANDROID_TOOLCHAIN=clang
+
+COPY ./genarate_package_xml.py .
+
+# generate package.xml for ros2 dependencies
+RUN ${PYTHON3_EXEC} genarate_package_xml.py base.yml
+
+RUN touch \
+  src/ros2/examples/rclpy/COLCON_IGNORE \
+  src/ros2/rcl/rcl/test/COLCON_IGNORE \
+  src/ros2/rcl_interfaces/test_msgs/COLCON_IGNORE \
+  src/ros2/rcl_logging/rcl_logging_log4cxx/COLCON_IGNORE
 
 RUN colcon build \
     --merge-install \
