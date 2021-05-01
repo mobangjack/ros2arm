@@ -23,7 +23,8 @@ sed -i 's/file(WRITE  \${CMAKE_CURRENT_BINARY_DIR}\/container_node_sizes_impl.hp
   src/foonathan/foonathan_memory/src/CMakeLists.txt
 # sed -i "s/libssl-dev//g" src/eProsima/Fast-DDS/package.xml
 sed -i "s/ rt//g" src/eProsima/Fast-DDS/cmake/modules/FindThirdpartyBoost.cmake
-sed -i "s/stdc++fs//g" src/ros2/rclcpp/rclcpp_components/CMakeLists.txt
+sed -i "s/stdc++fs//g" src/ros/pluginlib/pluginlib/CMakeLists.txt
+sed -i "s/stdc++fs//g" src/ros/pluginlib/pluginlib/pluginlib-extras.cmake
 
 cp arch/${ANDROID_ABI}/container_node_sizes_impl.hpp \
     src/foonathan/foonathan_memory/include/foonathan/memory/detail/
@@ -36,7 +37,10 @@ touch \
   src/ros-tracing/ros2_tracing/tracetools_launch/COLCON_IGNORE \
   src/ros-tracing/ros2_tracing/tracetools_read/COLCON_IGNORE \
   src/ros-tracing/ros2_tracing/tracetools_test/COLCON_IGNORE \
-  src/ros-tracing/ros2_tracing/tracetools_trace/COLCON_IGNORE
+  src/ros-tracing/ros2_tracing/tracetools_trace/COLCON_IGNORE \
+  src/ros2/rosbag2/rosbag2_transport/COLCON_IGNORE \
+  src/ros2/rosbag2/ros2bag/COLCON_IGNORE
+
 
 colcon build \
     --merge-install \

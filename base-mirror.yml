@@ -10,7 +10,7 @@ repositories:
   jbeder/yaml-cpp:
     type: git
     url: https://gitee.com/mobangjack/yaml-cpp.git
-    version: master
+    version: 0f9a586ca1dc29c2ecb8dd715a315b93e3f40f79
   leethomason/tinyxml2:
     type: git
     url: https://gitee.com/mobangjack/tinyxml2.git

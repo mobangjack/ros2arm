@@ -14,4 +14,4 @@ repositories:
   jbeder/yaml-cpp:
     type: git
     url: https://github.com/jbeder/yaml-cpp.git
-    version: master
+    version: 0f9a586ca1dc29c2ecb8dd715a315b93e3f40f79
