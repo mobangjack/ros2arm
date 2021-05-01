@@ -11,7 +11,7 @@ sed -i "s/libssl-dev//g" src/eProsima/Fast-DDS/package.xml
 sed -i "s/ rt//g" src/eProsima/Fast-DDS/cmake/modules/FindThirdpartyBoost.cmake
 sed -i "s/stdc++fs//g" src/ros2/rclcpp/rclcpp_components/CMakeLists.txt
 
-cp ${ANDROID_ABI}/container_node_sizes_impl.hpp \
+cp arch/${ANDROID_ABI}/container_node_sizes_impl.hpp \
     src/foonathan/foonathan_memory/include/foonathan/memory/detail/
 
 touch \
