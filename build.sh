@@ -19,6 +19,8 @@ sed_append() {
 
 sed_append "FOONATHAN_MEMORY" "  <depend>foonathan_memory</depend>" src/eProsima/foonathan_memory_vendor/package.xml
 sed_append "option(SECURITY" "set(SECURITY OFF)" src/eProsima/Fast-DDS/CMakeLists.txt
+sed -i 's/file(WRITE  \${CMAKE_CURRENT_BINARY_DIR}\/container_node_sizes_impl.hpp "#define FOONATHAN_MEMORY_NO_NODE_SIZE")/file(COPY \${CMAKE_CURRENT_SOURCE_DIR}\/..\/include\/foonathan\/memory\/detail\/container_node_sizes_impl.hpp DESTINATION \${CMAKE_CURRENT_BINARY_DIR})/g' \
+  src/foonathan/foonathan_memory/src/CMakeLists.txt
 # sed -i "s/libssl-dev//g" src/eProsima/Fast-DDS/package.xml
 sed -i "s/ rt//g" src/eProsima/Fast-DDS/cmake/modules/FindThirdpartyBoost.cmake
 sed -i "s/stdc++fs//g" src/ros2/rclcpp/rclcpp_components/CMakeLists.txt
