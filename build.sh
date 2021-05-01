@@ -11,6 +11,9 @@ sed -i "s/libssl-dev//g" src/eProsima/Fast-DDS/package.xml
 sed -i "s/ rt//g" src/eProsima/Fast-DDS/cmake/modules/FindThirdpartyBoost.cmake
 sed -i "s/stdc++fs//g" src/ros2/rclcpp/rclcpp_components/CMakeLists.txt
 
+cp ${ANDROID_ABI}/container_node_sizes_impl.hpp \
+    src/foonathan/foonathan_memory/include/foonathan/memory/detail/
+
 touch \
   src/ros2/examples/rclpy/COLCON_IGNORE \
   src/ros2/rcl/rcl/test/COLCON_IGNORE \
@@ -36,8 +39,10 @@ colcon build \
         -DCOMPILE_EXAMPLES=OFF \
         -DBUILD_TESTING:BOOL=OFF \
         -DBUILD_MEMORY_TESTS=OFF \
+        -DBUILD_MEMORY_TOOLS=OFF \
         -DBUILD_MEMORY_EXAMPLES=OFF \
-        -DFOONATHAN_MEMORY_BUILD_EXAMPLES=OFF\
         -DFOONATHAN_MEMORY_BUILD_TESTS=OFF \
+        -DFOONATHAN_MEMORY_BUILD_TOOLS=OFF \
+        -DFOONATHAN_MEMORY_BUILD_EXAMPLES=OFF\
         -DBUILD_SHARED_LIBS=ON \
         -DCMAKE_FIND_ROOT_PATH="$PWD/install"
