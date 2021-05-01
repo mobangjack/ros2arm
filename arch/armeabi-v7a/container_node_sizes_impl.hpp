@@ -8,27 +8,22 @@ namespace detail
 
     template <>
     struct forward_list_node_size<1>
-    : std::integral_constant<std::size_t, 15>
+    : std::integral_constant<std::size_t, 7>
     {};
 
     template <>
     struct forward_list_node_size<2>
-    : std::integral_constant<std::size_t, 14>
+    : std::integral_constant<std::size_t, 6>
     {};
 
     template <>
     struct forward_list_node_size<4>
-    : std::integral_constant<std::size_t, 12>
+    : std::integral_constant<std::size_t, 4>
     {};
 
     template <>
     struct forward_list_node_size<8>
     : std::integral_constant<std::size_t, 8>
-    {};
-
-    template <>
-    struct forward_list_node_size<16>
-    : std::integral_constant<std::size_t, 16>
     {};
 } // namespace detail
 
@@ -45,27 +40,22 @@ namespace detail
 
     template <>
     struct list_node_size<1>
-    : std::integral_constant<std::size_t, 23>
+    : std::integral_constant<std::size_t, 11>
     {};
 
     template <>
     struct list_node_size<2>
-    : std::integral_constant<std::size_t, 22>
+    : std::integral_constant<std::size_t, 10>
     {};
 
     template <>
     struct list_node_size<4>
-    : std::integral_constant<std::size_t, 20>
+    : std::integral_constant<std::size_t, 8>
     {};
 
     template <>
     struct list_node_size<8>
-    : std::integral_constant<std::size_t, 16>
-    {};
-
-    template <>
-    struct list_node_size<16>
-    : std::integral_constant<std::size_t, 16>
+    : std::integral_constant<std::size_t, 8>
     {};
 } // namespace detail
 
@@ -82,27 +72,22 @@ namespace detail
 
     template <>
     struct set_node_size<1>
-    : std::integral_constant<std::size_t, 39>
+    : std::integral_constant<std::size_t, 19>
     {};
 
     template <>
     struct set_node_size<2>
-    : std::integral_constant<std::size_t, 38>
+    : std::integral_constant<std::size_t, 18>
     {};
 
     template <>
     struct set_node_size<4>
-    : std::integral_constant<std::size_t, 36>
+    : std::integral_constant<std::size_t, 16>
     {};
 
     template <>
     struct set_node_size<8>
-    : std::integral_constant<std::size_t, 32>
-    {};
-
-    template <>
-    struct set_node_size<16>
-    : std::integral_constant<std::size_t, 32>
+    : std::integral_constant<std::size_t, 16>
     {};
 } // namespace detail
 
@@ -119,27 +104,22 @@ namespace detail
 
     template <>
     struct multiset_node_size<1>
-    : std::integral_constant<std::size_t, 39>
+    : std::integral_constant<std::size_t, 19>
     {};
 
     template <>
     struct multiset_node_size<2>
-    : std::integral_constant<std::size_t, 38>
+    : std::integral_constant<std::size_t, 18>
     {};
 
     template <>
     struct multiset_node_size<4>
-    : std::integral_constant<std::size_t, 36>
+    : std::integral_constant<std::size_t, 16>
     {};
 
     template <>
     struct multiset_node_size<8>
-    : std::integral_constant<std::size_t, 32>
-    {};
-
-    template <>
-    struct multiset_node_size<16>
-    : std::integral_constant<std::size_t, 32>
+    : std::integral_constant<std::size_t, 16>
     {};
 } // namespace detail
 
@@ -156,27 +136,22 @@ namespace detail
 
     template <>
     struct unordered_set_node_size<1>
-    : std::integral_constant<std::size_t, 23>
+    : std::integral_constant<std::size_t, 11>
     {};
 
     template <>
     struct unordered_set_node_size<2>
-    : std::integral_constant<std::size_t, 22>
+    : std::integral_constant<std::size_t, 10>
     {};
 
     template <>
     struct unordered_set_node_size<4>
-    : std::integral_constant<std::size_t, 20>
+    : std::integral_constant<std::size_t, 8>
     {};
 
     template <>
     struct unordered_set_node_size<8>
     : std::integral_constant<std::size_t, 16>
-    {};
-
-    template <>
-    struct unordered_set_node_size<16>
-    : std::integral_constant<std::size_t, 32>
     {};
 } // namespace detail
 
@@ -193,27 +168,22 @@ namespace detail
 
     template <>
     struct unordered_multiset_node_size<1>
-    : std::integral_constant<std::size_t, 23>
+    : std::integral_constant<std::size_t, 11>
     {};
 
     template <>
     struct unordered_multiset_node_size<2>
-    : std::integral_constant<std::size_t, 22>
+    : std::integral_constant<std::size_t, 10>
     {};
 
     template <>
     struct unordered_multiset_node_size<4>
-    : std::integral_constant<std::size_t, 20>
+    : std::integral_constant<std::size_t, 8>
     {};
 
     template <>
     struct unordered_multiset_node_size<8>
     : std::integral_constant<std::size_t, 16>
-    {};
-
-    template <>
-    struct unordered_multiset_node_size<16>
-    : std::integral_constant<std::size_t, 32>
     {};
 } // namespace detail
 
@@ -230,27 +200,22 @@ namespace detail
 
     template <>
     struct map_node_size<1>
-    : std::integral_constant<std::size_t, 38>
+    : std::integral_constant<std::size_t, 18>
     {};
 
     template <>
     struct map_node_size<2>
-    : std::integral_constant<std::size_t, 36>
+    : std::integral_constant<std::size_t, 16>
     {};
 
     template <>
     struct map_node_size<4>
-    : std::integral_constant<std::size_t, 32>
+    : std::integral_constant<std::size_t, 16>
     {};
 
     template <>
     struct map_node_size<8>
-    : std::integral_constant<std::size_t, 32>
-    {};
-
-    template <>
-    struct map_node_size<16>
-    : std::integral_constant<std::size_t, 32>
+    : std::integral_constant<std::size_t, 16>
     {};
 } // namespace detail
 
@@ -267,27 +232,22 @@ namespace detail
 
     template <>
     struct multimap_node_size<1>
-    : std::integral_constant<std::size_t, 38>
+    : std::integral_constant<std::size_t, 18>
     {};
 
     template <>
     struct multimap_node_size<2>
-    : std::integral_constant<std::size_t, 36>
+    : std::integral_constant<std::size_t, 16>
     {};
 
     template <>
     struct multimap_node_size<4>
-    : std::integral_constant<std::size_t, 32>
+    : std::integral_constant<std::size_t, 16>
     {};
 
     template <>
     struct multimap_node_size<8>
-    : std::integral_constant<std::size_t, 32>
-    {};
-
-    template <>
-    struct multimap_node_size<16>
-    : std::integral_constant<std::size_t, 32>
+    : std::integral_constant<std::size_t, 16>
     {};
 } // namespace detail
 
@@ -304,27 +264,22 @@ namespace detail
 
     template <>
     struct unordered_map_node_size<1>
-    : std::integral_constant<std::size_t, 22>
+    : std::integral_constant<std::size_t, 10>
     {};
 
     template <>
     struct unordered_map_node_size<2>
-    : std::integral_constant<std::size_t, 20>
+    : std::integral_constant<std::size_t, 8>
     {};
 
     template <>
     struct unordered_map_node_size<4>
-    : std::integral_constant<std::size_t, 16>
+    : std::integral_constant<std::size_t, 8>
     {};
 
     template <>
     struct unordered_map_node_size<8>
     : std::integral_constant<std::size_t, 16>
-    {};
-
-    template <>
-    struct unordered_map_node_size<16>
-    : std::integral_constant<std::size_t, 32>
     {};
 } // namespace detail
 
@@ -341,27 +296,22 @@ namespace detail
 
     template <>
     struct unordered_multimap_node_size<1>
-    : std::integral_constant<std::size_t, 22>
+    : std::integral_constant<std::size_t, 10>
     {};
 
     template <>
     struct unordered_multimap_node_size<2>
-    : std::integral_constant<std::size_t, 20>
+    : std::integral_constant<std::size_t, 8>
     {};
 
     template <>
     struct unordered_multimap_node_size<4>
-    : std::integral_constant<std::size_t, 16>
+    : std::integral_constant<std::size_t, 8>
     {};
 
     template <>
     struct unordered_multimap_node_size<8>
     : std::integral_constant<std::size_t, 16>
-    {};
-
-    template <>
-    struct unordered_multimap_node_size<16>
-    : std::integral_constant<std::size_t, 32>
     {};
 } // namespace detail
 
@@ -378,27 +328,22 @@ namespace detail
 
     template <>
     struct shared_ptr_stateless_node_size<1>
-    : std::integral_constant<std::size_t, 24>
+    : std::integral_constant<std::size_t, 40>
     {};
 
     template <>
     struct shared_ptr_stateless_node_size<2>
-    : std::integral_constant<std::size_t, 24>
+    : std::integral_constant<std::size_t, 40>
     {};
 
     template <>
     struct shared_ptr_stateless_node_size<4>
-    : std::integral_constant<std::size_t, 24>
+    : std::integral_constant<std::size_t, 40>
     {};
 
     template <>
     struct shared_ptr_stateless_node_size<8>
-    : std::integral_constant<std::size_t, 24>
-    {};
-
-    template <>
-    struct shared_ptr_stateless_node_size<16>
-    : std::integral_constant<std::size_t, 32>
+    : std::integral_constant<std::size_t, 48>
     {};
 } // namespace detail
 
@@ -415,27 +360,22 @@ namespace detail
 
     template <>
     struct shared_ptr_stateful_node_size<1>
-    : std::integral_constant<std::size_t, 32>
+    : std::integral_constant<std::size_t, 44>
     {};
 
     template <>
     struct shared_ptr_stateful_node_size<2>
-    : std::integral_constant<std::size_t, 32>
+    : std::integral_constant<std::size_t, 44>
     {};
 
     template <>
     struct shared_ptr_stateful_node_size<4>
-    : std::integral_constant<std::size_t, 32>
+    : std::integral_constant<std::size_t, 44>
     {};
 
     template <>
     struct shared_ptr_stateful_node_size<8>
-    : std::integral_constant<std::size_t, 32>
-    {};
-
-    template <>
-    struct shared_ptr_stateful_node_size<16>
-    : std::integral_constant<std::size_t, 48>
+    : std::integral_constant<std::size_t, 56>
     {};
 } // namespace detail
 
