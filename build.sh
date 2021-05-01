@@ -17,7 +17,31 @@ sed_append() {
   fi
 }
 
-sed_append "FOONATHAN_MEMORY" "  <depend>foonathan_memory</depend>" src/eProsima/foonathan_memory_vendor/package.xml
+append_cmake_args() {
+  ref="set(extra_cmake_args)"
+  name="$1"
+  file="$2"
+  value=$(eval echo \$${name})
+  line="list(APPEND extra_cmake_args \"-D${name}=${value}\")"
+  sed_append "$ref" "$line" "$file"
+}
+
+append_android_cmake_args() {
+  file="$1"
+  append_cmake_args ANDROID_ABI "$file"
+  append_cmake_args ANDROID_NATIVE_API_LEVEL "$file"
+  append_cmake_args ANDROID_STL "$file"
+  append_cmake_args ANDROID_TOOLCHAIN "$file"
+}
+
+append_android_cmake_args src/ros2/rosbag2/zstd_vendor/CMakeLists.txt
+append_android_cmake_args src/ros2/rosbag2/sqlite3_vendor/CMakeLists.txt
+
+sed_append "<buildtool_depend>ament_cmake<\/buildtool_depend>" "<depend>yaml_cpp</depend>" src/ros2/yaml_cpp_vendor/package.xml
+sed -i "s/build_yaml_cpp()/find_package(yaml_cpp)/g" src/ros2/yaml_cpp_vendor/CMakeLists.txt
+mv src/facebook/zstd/package.xml src/facebook/zstd/build/cmake/
+
+sed_append "FOONATHAN_MEMORY" "<depend>foonathan_memory</depend>" src/eProsima/foonathan_memory_vendor/package.xml
 sed_append "option(SECURITY" "set(SECURITY OFF)" src/eProsima/Fast-DDS/CMakeLists.txt
 sed -i 's/file(WRITE  \${CMAKE_CURRENT_BINARY_DIR}\/container_node_sizes_impl.hpp "#define FOONATHAN_MEMORY_NO_NODE_SIZE")/file(COPY \${CMAKE_CURRENT_SOURCE_DIR}\/..\/include\/foonathan\/memory\/detail\/container_node_sizes_impl.hpp DESTINATION \${CMAKE_CURRENT_BINARY_DIR})/g' \
   src/foonathan/foonathan_memory/src/CMakeLists.txt

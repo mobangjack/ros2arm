@@ -11,7 +11,11 @@ repositories:
     type: git
     url: https://github.com/gabime/spdlog.git
     version: master
-  jbeder/yaml-cpp:
+  jbeder/yaml_cpp:
     type: git
     url: https://github.com/jbeder/yaml-cpp.git
     version: 0f9a586ca1dc29c2ecb8dd715a315b93e3f40f79
+  facebook/zstd:
+    type: git
+    url: https://github.com/facebook/zstd.git
+    version: v1.4.4

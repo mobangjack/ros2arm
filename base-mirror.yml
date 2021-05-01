@@ -1,4 +1,8 @@
 repositories:
+  facebook/zstd:
+    type: git
+    url: https://gitee.com/mobangjack/zstd.git
+    version: v1.4.4
   foonathan/foonathan_memory:
     type: git
     url: https://gitee.com/mobangjack/memory.git
@@ -7,7 +11,7 @@ repositories:
     type: git
     url: https://gitee.com/mobangjack/spdlog.git
     version: master
-  jbeder/yaml-cpp:
+  jbeder/yaml_cpp:
     type: git
     url: https://gitee.com/mobangjack/yaml-cpp.git
     version: 0f9a586ca1dc29c2ecb8dd715a315b93e3f40f79
