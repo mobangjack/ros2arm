@@ -7,7 +7,18 @@ export ANDROID_TOOLCHAIN=clang
 
 ${PYTHON3_EXEC} generate_package_xml.py base.yml
 
-sed -i '/option(SECURITY/a\set(SECURITY\ OFF)' src/eProsima/Fast-DDS/CMakeLists.txt
+sed_append() {
+  ref="$1"
+  line="$2"
+  file="$3"
+  grep "$line" "$file"
+  if [ $? -ne 0 ]; then
+    sed -i "/${ref}/a\\${line}" "$file"
+  fi
+}
+
+sed_append "FOONATHAN_MEMORY" "  <depend>foonathan_memory</depend>" src/eProsima/foonathan_memory_vendor/package.xml
+sed_append "option(SECURITY" "set(SECURITY OFF)" src/eProsima/Fast-DDS/CMakeLists.txt
 # sed -i "s/libssl-dev//g" src/eProsima/Fast-DDS/package.xml
 sed -i "s/ rt//g" src/eProsima/Fast-DDS/cmake/modules/FindThirdpartyBoost.cmake
 sed -i "s/stdc++fs//g" src/ros2/rclcpp/rclcpp_components/CMakeLists.txt
