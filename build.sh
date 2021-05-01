@@ -7,7 +7,8 @@ export ANDROID_TOOLCHAIN=clang
 
 ${PYTHON3_EXEC} generate_package_xml.py base.yml
 
-sed -i "s/libssl-dev//g" src/eProsima/Fast-DDS/package.xml
+sed -i '/option(SECURITY/a\set(SECURITY\ OFF)' src/eProsima/Fast-DDS/CMakeLists.txt
+# sed -i "s/libssl-dev//g" src/eProsima/Fast-DDS/package.xml
 sed -i "s/ rt//g" src/eProsima/Fast-DDS/cmake/modules/FindThirdpartyBoost.cmake
 sed -i "s/stdc++fs//g" src/ros2/rclcpp/rclcpp_components/CMakeLists.txt
 
